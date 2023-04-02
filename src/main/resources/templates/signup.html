@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+				<!--div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${session.removeAttribute(message)}"> </th:block>
+				</div> -->
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${#session.removeAttribute(message)}"> </th:block>
+				</div>
+					<div class="my-card">
+						<h1 class="text-center">Register Here</h1>
+						<form action="" th:action="@{/register_user}" method="post" th:object="${user}">
+							
+							<!-- name field -->
+							<div class="mb-3">
+						    	<label for="name" class="form-label">Full Name</label>
+						    	<input type="text" class="form-control" required id="name" aria-describedby="emailHelp" placeholder="Enter here" th:value="${user.name}" name="name">
+						    </div>
+						    
+						    <!-- Email field -->
+							<div class="mb-3">
+						    	<label for="mail" class="form-label">Email</label>
+						    	<input type="email" class="form-control" required id="mail" aria-describedby="emailHelp" placeholder="Enter here" name="email">
+						    </div>
+						    
+						    <!-- Email field -->
+							<div class="mb-3">
+						    	<label for="pass" class="form-label">Password</label>
+						    	<input type="password" class="form-control" required id="pass" aria-describedby="emailHelp" placeholder="Enter here" name="password">
+						    </div>
+						    
+						    <!-- Institute field -->
+							<div class="mb-3">
+						    	<label for="pass" class="form-label">Institute</label>
+						    	<input type="text" class="form-control" required id="institute" aria-describedby="emailHelp" placeholder="Enter here" name="institute">
+						    </div>
+						    
+						    <!-- Branch field -->
+							<div class="mb-3">
+						    	<label for="pass" class="form-label">Branch</label>
+						    	<input type="text" class="form-control" required id="branch" aria-describedby="emailHelp" placeholder="Enter here" name="branch">
+						    </div>
+						    
+						    <!-- Year field -->
+						    <select class="form-select" aria-label="Default select example" required id="year" name="year">
+							 	<option selected>Select Year of Study</option>
+								<option value="1">First Year</option>
+								<option value="2">Second Year</option>
+								<option value="3">Third Year</option>
+								<option value="4">Final Year</option>
+							</select>
+							
+							<!-- Age field -->
+							<div class="mb-3">
+						    	<label for="age" class="form-label">Age</label>
+						    	<input type="text" class="form-control" required pattern="^[0-9]{2}$" id="age" aria-describedby="emailHelp" placeholder="Enter here" name="age">
+						    </div>
+						    
+						    <div class="mb-3 form-group form-check">
+						    	<input type="checkbox" class="form-check-input" id="agreement" name="agreement">
+						    	<label for="agreement">Terms and conditions</label>
+						    </div>
+						    
+						    <div class="mb-3">
+						   		 <button class="form-control btn btn-primary" type="submit">Submit</button>
+						    </div>
+						    
+						    <div class="mb-3">
+						   		 <button class="form-control btn btn-gray" type="reset">Reset</button>
+						    </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
