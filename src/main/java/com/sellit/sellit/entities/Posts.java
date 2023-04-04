@@ -65,4 +65,9 @@ public class Posts {
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
+	@Override
+	public String toString() {
+		return "Posts [id=" + id + ", title=" + title + ", price=" + price + ", discription=" + discription
+				+ ", catgory=" + catgory + ", contact=" + contact + ", user=" + user + "]";
+	}
 }

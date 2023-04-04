@@ -28,8 +28,15 @@ public class User {
 	private String imgurl;
 	private String institute;
 	private String branch;
+	private boolean ispremium;
 	private int year;
 	private int age;
+	public boolean isIspremium() {
+		return ispremium;
+	}
+	public void setIspremium(boolean ispremium) {
+		this.ispremium = ispremium;
+	}
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Posts> posts= new ArrayList<>();
 	
@@ -40,7 +47,7 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
 				+ ", enabled=" + enabled + ", imgurl=" + imgurl + ", institute=" + institute + ", branch=" + branch
-				+ ", year=" + year + ", age=" + age + ", posts=" + posts + "]";
+				+ ", ispremium=" + ispremium + ", year=" + year + ", age=" + age + ", posts=" + posts + "]";
 	}
 	public void setPosts(List<Posts> posts) {
 		this.posts = posts;

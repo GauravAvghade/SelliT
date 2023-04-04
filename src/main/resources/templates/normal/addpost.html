@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${#session.removeAttribute(message)}"> </th:block>
+				</div>
+					<div class="my-card">
+						<h1 class="text-center">Add Post</h1>
+						<form action="#" th:action="@{/user/process_post}" method="post" th:object="${posts}">
+						    
+						    <!-- Title -->
+							<div class="mb-3">
+						    	<label for="title" class="form-label">Title</label>
+						    	<input type="text" class="form-control" required id="title"  placeholder="Enter here" name="title">
+						    </div>
+						    
+						    <!-- Price -->
+							<div class="mb-3">
+						    	<label for="price" class="form-label">Price</label>
+						    	<input type="text" class="form-control" required id="price" placeholder="Enter here" name="price">
+						    </div>
+					
+						    <!-- Category -->
+						    <label for="catgory" class="form-label">Category</label>
+						    <select class="form-select" aria-label="Default select example" required id="catgory" name="catgory">
+							 	<option selected>Select Category</option>
+								<option value="project">Project</option>
+								<option value="furniture">Furniture</option>
+								<option value="study_material">Study Material</option>
+								<option value="vehicle">Vehicle</option>
+								<option value="electric">Electric Appliances</option>
+							</select>
+						    
+						    <!-- Description -->
+							<div class="mb-3">
+						    	<label for="discription" class="form-label">Description</label>
+						    	<textarea class="form-control" id="discription" rows="3" name="discription"></textarea>
+						    </div>
+
+							<!-- Contact -->
+							<div class="mb-3">
+						    	<label for="contact" class="form-label">Contact</label>
+						    	<input type="text" class="form-control" pattern="^[0-9]{10}$" required id="contact"  placeholder="Enter here" name="contact">
+						    </div>
+						    
+						    <div class="mb-3">
+						   		 <button class="form-control btn btn-primary" type="submit">Submit</button>
+						    </div>
+						    <div class="mb-3">
+						   		 <button class="form-control btn btn-gray" type="reset">Reset</button>
+						    </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

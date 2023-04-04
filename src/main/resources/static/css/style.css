@@ -6,3 +6,56 @@ body{
 	padding : 20px;
 	background: #FFF;	
 }
+
+/* sidebar */
+.sidebar{
+	width:18%;
+	background:white;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+}
+
+.sidebar a{
+	display: block;
+	widht: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: gray;
+}
+
+.content{
+	margin-left:20%;
+}
+
+.sidebar a:hover{
+	background: #e2e2e2;
+}
+
+.sidebar .divider{
+	height: .5px;
+	widht: 100%;
+	background: #e2e2e2;
+}
+
+.sidebar .cross-btn{
+	position: absolute;
+	top: 0;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+	.content{
+		margin-left:0%;
+	}
+	.sidebar{
+		display: none;
+		width:80%;
+		background:white;
+		height: 100%;
+		position: fixed;
+		padding-top: 45px;
+	}
+}

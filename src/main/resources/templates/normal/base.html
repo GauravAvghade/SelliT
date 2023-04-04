@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 
     <title th:text="${title}">Hello, world!</title>
@@ -27,16 +28,16 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">HOME</a>
+          <a class="nav-link active" aria-current="page" th:href="@{/user/index}">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" th:href="@{/about}">ABOUT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" th:href="@{/user/index}">DASHBOARD</a>
+          <a class="nav-link" ><span th:text="${user.name}"></span></a>
         </li>
 		<li class="nav-item">
-          <a class="nav-link" th:href="@{/signup}">SING UP</a>
+          <a class="nav-link" th:href="@{/logout}">LOGOUT</a>
         </li>
       </ul>
     </div>
@@ -44,14 +45,32 @@
   </div>
 </nav>
     
-    <div th:replace=${content}></div>
+    <div class="sidebar">
+    	
+    	<span  onclick="toggleSidebar()" class="cross-btn">&times;</span>
     
+    	<a href="#" class="item"><i class="fa-solid fa-house"></i> Home</a>
+    	<a th:if="${user.ispremium}" th:href="@{/user/addpost}" class="item"><i class="fa-solid fa-plus"></i> Add Post</a>
+    	<a href="#" class="item"><i class="fa-solid fa-user"></i> Your Profile</a>
+    	<a th:href="@{/user/setting}" class="item"><i class="fa-solid fa-gear"></i> Settings</a>
+    	<a th:href="@{/logout}" class="item"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    	<div class="divider"></div>
+    </div>
     
+    <!-- Content -->
+    <div class="content">
+    	<i class="fas fa-bars m-3" onclick="toggleSidebar()"></i>
+		<div th:replace="${content}"></div>  	
+    </div>
 
+	<!-- 
+    <div th:replace=${content}></div>
+     -->
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 	<script th:src="@{/js/script.js}"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

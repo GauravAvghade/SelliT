@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 	<section>
-		<h1>Welcome</h1>
-		<p th:text="${user.name}"></p>
-		<p th:text="${user.email}"></p>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+				
+					<div class="my-card">
+						<h1 class="text-center">Posts</h1>
+
+						<table class="table caption-top">
+						  <caption>List of Post</caption>
+						  <thead>
+						    <tr>
+						      <th scope="col">Title</th>
+						      <th scope="col">Category</th>
+						      <th scope="col">Price</th>
+						      <th scope="col">Action</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr th:each="p : ${list}">
+						      <th scope="row" th:text="${p.title}">1</th>
+						      <td th:text="${p.catgory}">Mark</td>
+						      <td th:text="${p.price}">Otto</td>
+						      <td>
+						      	<button class="btn">View</button>
+						      </td>
+						    </tr>
+						   
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</section>
 </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+				
+					<div class="my-card">
+					
+						<h1 class="text-center">Add Post</h1>
+				
+						<form action="#" th:action="@{/user/process_update}" method="post" >
+							
+						    <!-- Category -->
+						    <label for="ispremium" class="form-label">Active Premium</label>
+						    <select class="form-select" aria-label="Default select example" required id="ispremium" name="ispremium">
+							 	<option selected>Select Option</option>
+								<option value="false">Deactivate</option>
+								<option value="true">Activate</option>
+							</select>
+						    <br>
+						    <div class="mb-3">
+						   		 <button class="form-control btn btn-primary" type="submit">Submit</button>
+						    </div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
