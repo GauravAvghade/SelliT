@@ -16,7 +16,6 @@ th:replace="normal/base::layout(~{::section})">
 						<h1 class="text-center">Posts</h1>
 
 						<table class="table caption-top">
-						  <caption>List of Post</caption>
 						  <thead>
 						    <tr>
 						      <th scope="col">Title</th>
@@ -31,12 +30,24 @@ th:replace="normal/base::layout(~{::section})">
 						      <td th:text="${p.catgory}">Mark</td>
 						      <td th:text="${p.price}">Otto</td>
 						      <td>
-						      	<button class="btn">View</button>
+						      	<a class="btn" th:href="@{'/user/'+${p.id}+'/post'}">View</a>
 						      </td>
 						    </tr>
 						   
 						  </tbody>
 						</table>
+						<nav aria-label="Page navigation example">
+						  <ul class="pagination justify-content-center">
+						    <li class="page-item" th:classappend="${current > 0 ? '' : 'disabled'}">
+						      <a class="page-link" href="#" tabindex="-1" aria-disabled="true" th:href="@{'/user/index/'+${current-1}}">Previous</a>
+						    </li>
+						    <li class="page-item" th:classappend="${current == i-1 ? 'active' : ''} " th:each="i : ${#numbers.sequence(1, total)}"><a class="page-link" th:href="@{'/user/index/'+${i-1}}" href="#"><span th:text="${i}"></span></a></li>
+
+						    <li class="page-item" th:classappend="${current < total-1 ? '' : 'disabled'}">
+						      <a class="page-link" href="#" th:href="@{'/user/index/'+${current+1}}">Next</a>
+						    </li>
+						  </ul>
+						</nav>
 					</div>
 				</div>
 			</div>

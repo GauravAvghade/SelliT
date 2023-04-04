@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+				
+					<div class="my-card">
+						<h1 class="text-center" th:text="${p.title}"></h1>
+
+						<table class="table caption-top">
+						  <thead>
+						    <tr>
+						      <th scope="row" >Title</th>
+						      <td th:text="${p.title}">Mark</td>
+
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th scope="row" >Category</th>
+						      <td th:text="${p.catgory}">Mark</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" >Uploaded by</th>
+						      <td th:text="${p.user.name}">Mark</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" >Price</th>
+						      <td th:text="${p.price}">Mark</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" >Contact</th>
+						      <td th:text="${p.contact}">Mark</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" >Description</th>
+						      <td th:text="${p.discription}">Mark</td>
+						    </tr>
+						   
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

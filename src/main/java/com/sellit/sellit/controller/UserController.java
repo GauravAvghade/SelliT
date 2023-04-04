@@ -6,10 +6,13 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,11 +40,13 @@ public class UserController {
 		model.addAttribute("user", user);
 	}
 	
-	@RequestMapping("/index")
-	public String dashboard(Model model, Principal principal) {
+	@RequestMapping("/index/{page}")
+	public String dashboard(@PathVariable("page") Integer page, Model model, Principal principal) {
 		model.addAttribute("title","Dashboard");
-		model.addAttribute("list",this.postsDao.findAll());
-
+		Page<Posts> pages = this.postsDao.findAll(PageRequest.of(page, 5));
+		model.addAttribute("list",pages);
+		model.addAttribute("current", page);
+		model.addAttribute("total", pages.getTotalPages());
 		return "normal/user_dashboard";
 	}
 	
@@ -83,6 +88,13 @@ public class UserController {
 		user.setIspremium(ispremium);
 		userDao.save(user);
 		return "normal/user_dashboard";
+	}
+	
+	@GetMapping("/{id}/post") 
+	public String show_post(@PathVariable("id") Integer id, Model model, Principal principal, HttpSession session) {
+		Posts p = postsDao.getById(id);
+		model.addAttribute("p",p);
+		return "normal/show_post";
 	}
 
 }

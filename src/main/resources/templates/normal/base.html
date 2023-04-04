@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/user/index}">HOME</a>
+          <a class="nav-link active" aria-current="page" th:href="@{/user/index/0}">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" th:href="@{/about}">ABOUT</a>
@@ -49,7 +49,7 @@
     	
     	<span  onclick="toggleSidebar()" class="cross-btn">&times;</span>
     
-    	<a href="#" class="item"><i class="fa-solid fa-house"></i> Home</a>
+    	<a href="#" class="item " th:href="@{/user/index/0}"><i class="fa-solid fa-house"></i> Home</a>
     	<a th:if="${user.ispremium}" th:href="@{/user/addpost}" class="item"><i class="fa-solid fa-plus"></i> Add Post</a>
     	<a href="#" class="item"><i class="fa-solid fa-user"></i> Your Profile</a>
     	<a th:href="@{/user/setting}" class="item"><i class="fa-solid fa-gear"></i> Settings</a>
