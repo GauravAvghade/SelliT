@@ -87,7 +87,7 @@ public class UserController {
 		User user = (User) model.getAttribute("user");
 		user.setIspremium(ispremium);
 		userDao.save(user);
-		return "normal/user_dashboard";
+		return "normal/settings";
 	}
 	
 	@GetMapping("/{id}/post") 
@@ -96,5 +96,10 @@ public class UserController {
 		model.addAttribute("p",p);
 		return "normal/show_post";
 	}
-
+	
+	@GetMapping("/profile")
+	public String profile(Model model, Principal principal) {
+		model.addAttribute("title","profile");
+		return "normal/info";
+	}
 }

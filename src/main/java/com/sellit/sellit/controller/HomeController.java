@@ -55,9 +55,7 @@ public class HomeController {
 			}
 			user.setRole("ROLE_USER");
 			user.setName(user.getName().toUpperCase());
-			user.setEnabled(true);
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
-			user.setInstitute("defult.png");
 			user.setIspremium(false);
 			User res= this.userDao.save(user);
 			model.addAttribute("user", res);

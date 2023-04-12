@@ -51,7 +51,7 @@
     
     	<a href="#" class="item " th:href="@{/user/index/0}"><i class="fa-solid fa-house"></i> Home</a>
     	<a th:if="${user.ispremium}" th:href="@{/user/addpost}" class="item"><i class="fa-solid fa-plus"></i> Add Post</a>
-    	<a href="#" class="item"><i class="fa-solid fa-user"></i> Your Profile</a>
+    	<a th:href="@{/user/profile}" class="item"><i class="fa-solid fa-user"></i> Your Profile</a>
     	<a th:href="@{/user/setting}" class="item"><i class="fa-solid fa-gear"></i> Settings</a>
     	<a th:href="@{/logout}" class="item"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     	<div class="divider"></div>

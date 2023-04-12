@@ -24,8 +24,6 @@ public class User {
 	private String email;
 	private String password;
 	private String role;
-	private boolean enabled;
-	private String imgurl;
 	private String institute;
 	private String branch;
 	private boolean ispremium;
@@ -46,7 +44,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
-				+ ", enabled=" + enabled + ", imgurl=" + imgurl + ", institute=" + institute + ", branch=" + branch
+				+ ", institute=" + institute + ", branch=" + branch
 				+ ", ispremium=" + ispremium + ", year=" + year + ", age=" + age + ", posts=" + posts + "]";
 	}
 	public void setPosts(List<Posts> posts) {
@@ -85,18 +83,6 @@ public class User {
 	}
 	public void setRole(String role) {
 		this.role = role;
-	}
-	public boolean isEnabled() {
-		return enabled;
-	}
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-	public String getImgurl() {
-		return imgurl;
-	}
-	public void setImgurl(String imgurl) {
-		this.imgurl = imgurl;
 	}
 	public String getInstitute() {
 		return institute;

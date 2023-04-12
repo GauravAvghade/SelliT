@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+
+					<div class="my-card">
+						<h1 class="text-center">Register Here</h1>
+						<form action="#" th:object="${user}">
+							
+							<!-- name field -->
+							<div class="mb-3">
+						    	<label for="name" class="form-label">Full Name</label>
+						    	<input type="text" class="form-control" id="name"  th:value="${user.name}">
+						    </div>
+						    
+						    <!-- name field -->
+							<div class="mb-3">
+						    	<label for="email" class="form-label">Email</label>
+						    	<input type="text" class="form-control" id="email"  th:value="${user.email}">
+						    </div>
+						    
+						    <!-- name field -->
+							<div class="mb-3">
+						    	<label for="institute" class="form-label">Institute</label>
+						    	<input type="text" class="form-control" id="institute" th:value="${user.institute}">
+						    </div>
+						    
+						    <!-- name field -->
+							<div class="mb-3">
+						    	<label for="branch" class="form-label">Branch</label>
+						    	<input type="text" class="form-control" id="branch"  th:value="${user.branch}">
+						    </div>
+						    
+						    <!-- name field -->
+							<div class="mb-3">
+						    	<label for="year" class="form-label">Year</label>
+						    	<input type="text" class="form-control" id="year"  th:value="${user.year}">
+						    </div>
+						    
+						    <div class="mb-3">
+						    	<label for="name" class="form-label">Age</label>
+						    	<input type="text" class="form-control" id="age"  th:value="${user.age}">
+						    </div>
+						    
+						</form>
+					</div>
+				</div>
+			</div>
+	</section>
+</body>
+</html>

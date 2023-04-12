@@ -24,5 +24,4 @@ public class Message {
 		this.content = content;
 		this.type = type;
 	}
-	
 }
